@@ -89,6 +89,15 @@ header {
     }
 }
 
+#about {
+    .container {
+        border: 1px solid #646464;
+        padding: 15px;
+        background-color: #eee;
+        line-height: 23px;
+    }
+}
+
 #work {
     .item {
         margin-bottom: 20px;
