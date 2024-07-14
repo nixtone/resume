@@ -157,6 +157,8 @@ header {
             &.html:before { background-image: url('images/upload/skills/html.png'); }
             &.emmet:before { background-image: url('images/upload/skills/emmet.png'); }
             &.css:before { background-image: url('images/upload/skills/css.png'); }
+            &.sass:before { background-image: url('images/upload/skills/sass.png'); }
+            &.gulp:before { background-image: url('images/upload/skills/gulp.png'); }
             &.w3c:before { background-image: url('images/upload/skills/w3c.png'); }
             &.photoshop:before { background-image: url('images/upload/skills/photoshop.png'); }
             &.figma:before { background-image: url('images/upload/skills/figma.png'); }
