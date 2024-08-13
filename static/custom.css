@@ -1,0 +1,266 @@
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('fonts/JetBrainsMono-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('static/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Структура */
+
+html, body {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font: 1rem 'JetBrains Mono';
+    #wrapper {
+        flex: 1 0 auto;
+    }
+    footer {
+        flex: 0 0 auto;
+    }
+}
+
+/* Атомарные классы */
+
+.container {
+	--max-width: 820px; /* Задать ширину блоков */
+	--padding-side: 15px;
+	width: min(var(--max-width), 100% - (var(--padding-side) * 2));
+	margin-inline: auto;
+	box-sizing: border-box;
+}
+.bimg, .bimg img {
+    display: block;
+    width: 100%;
+}
+h2 {
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid;
+}
+.block {
+    margin: 30px 0;
+}
+
+
+/* БЭМ */
+
+header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .container {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+        .col.c1 {
+            grid-column: 3 span;
+            .avatar_area {
+                width: 120px;
+                height: 120px;
+                background: #eee;
+                .avatar {
+                    max-width: 120px;
+                }
+            }
+        }
+        .col.c2 {
+            grid-column: 9 span;
+            .status {
+                color: #646464;
+                margin-bottom: 5px;
+            }
+            .name {
+                font-size: 1.6em;
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+            .contact-area {
+                display: grid;
+                grid-template-columns: 2fr 2fr;
+                gap: 5px;
+            }
+        }
+    }
+}
+
+#about {
+    .container {
+        border: 1px solid #646464;
+        padding: 15px;
+        background-color: #eee;
+        line-height: 23px;
+    }
+}
+
+#work {
+    .item {
+        margin-bottom: 20px;
+        display: flex;
+        gap: 10px;
+        .col {
+            &.c1 {
+                width: 140px;
+            }
+        }
+        .time {
+            color: #719c51;
+        }
+        .duration {
+            color: #646464;
+        }
+        .name {
+            color: #3b84c0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    }
+}
+
+#skill {
+    .tag-area {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+        .tag {
+            display: inline-block;
+            position: relative;
+            height: 24px;
+            background-color: #eee;
+            padding: 5px 10px 5px 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &.no-preview {
+                padding-left: 10px;
+            }
+            &:before {
+                content: '';
+                display: block;
+                width: 24px;
+                height: 24px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: 24px;
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                transform: translate(0, -50%);
+            }
+
+            /* Верстка */
+            &.html:before { background-image: url('images/upload/skills/html.png'); }
+            &.emmet:before { background-image: url('images/upload/skills/emmet.png'); }
+            &.css:before { background-image: url('images/upload/skills/css.png'); }
+            &.sass:before { background-image: url('images/upload/skills/sass.png'); }
+            &.gulp:before { background-image: url('images/upload/skills/gulp.png'); }
+            &.w3c:before { background-image: url('images/upload/skills/w3c.png'); }
+            &.photoshop:before { background-image: url('images/upload/skills/photoshop.png'); }
+            &.figma:before { background-image: url('images/upload/skills/figma.png'); }
+
+            /* Программирование */
+            &.php:before { background-image: url('images/upload/skills/php.png'); }
+            &.laravel:before { background-image: url('images/upload/skills/laravel.png'); }
+            &.composer:before { background-image: url('images/upload/skills/composer.png'); }
+            &.mysql:before { background-image: url('images/upload/skills/mysql.png'); }
+            &.js:before { background-image: url('images/upload/skills/js.png'); }
+            &.jquery:before { background-image: url('images/upload/skills/jquery.png'); }
+
+            /* Инструменты */
+            &.git:before { background-image: url('images/upload/skills/git.png'); }
+            &.photoshop:before { background-image: url('images/upload/skills/photoshop.png'); }
+            &.phpstorm:before { background-image: url('images/upload/skills/phpstorm.png'); }
+            &.sublime:before { background-image: url('images/upload/skills/sublime.png'); }
+            &.linux:before { background-image: url('images/upload/skills/linux.png'); }
+            &.putty:before { background-image: url('images/upload/skills/putty.png'); }
+            &.apache:before { background-image: url('images/upload/skills/apache.png'); }
+
+        }
+    }
+}
+
+#project {
+    .wrap {
+        display: grid;
+        gap: 15px;
+        grid-template-columns: repeat(4, 1fr);
+        .item {
+            border: 1px solid #3b84c0;
+            padding: 2px;
+            position: relative;
+            .hover-area {
+                display: none;
+                background-color: rgba(0, 0, 0, 0.7);
+                box-sizing: border-box;
+                color: #eee;
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                right: 2px;
+                bottom: 2px;
+                width: calc(100% - 4px);
+                height: calc(100% - 4px);
+                padding: 10px;
+                .name {
+                    font-size: 1.4em;
+                    margin-bottom: 5px;
+                }
+                .link_area {
+                    position: absolute;
+                    left: 10px;
+                    right: 10px;
+                    bottom: 10px;
+                    .link {
+                        color: #98c379;
+                        display: block;
+                    }
+                }
+                &.on {
+                    display: block;
+                }
+            }
+            &:hover .hover-area {
+                display: block;
+            }
+        }
+    }
+}
+
+
+
+
+footer .container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 1px solid;
+    text-align: center;
+    color: #646464;
+    margin-top: 30px;
+}
+
+/* Адаптив */
+
+@media (width > 820px) {
+    .nob {
+        display: none;
+    }
+
+
+}
+@media (width <= 820px) {
+    .nom {
+        display: none;
+    }
+
+
+}
